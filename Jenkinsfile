@@ -5,15 +5,17 @@ pipeline {
 
             stage('Complile Stage') {
                 steps {
-                    withMaven(maven: 'mavenn')
-                    sh 'mvn clean package'
+                    withMaven(maven: 'mavenn') {
+                        sh 'mvn clean package'
+                    }
                 }
             }
 
             stage('Test Stage') {
                 steps {
-                    withMaven(maven: 'maven_3_6_1')
-                    sh 'mvn clean test'
+                    withMaven(maven: 'mavenn') {
+                        sh 'mvn clean test'
+                    }
                 }
             }
 
